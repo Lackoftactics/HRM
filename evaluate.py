@@ -7,7 +7,11 @@ import torch.distributed as dist
 
 import pydantic
 from omegaconf import OmegaConf
-from pretrain import PretrainConfig, init_train_state, evaluate, create_dataloader
+from pretrain import PretrainConfig
+from utils.device_utils import (
+    get_optimal_device, get_device_name, setup_device_environment,
+    supports_distributed_training
+), init_train_state, evaluate, create_dataloader
 
 
 class EvalConfig(pydantic.BaseModel):
@@ -21,15 +25,26 @@ def launch():
     
     RANK = 0
     WORLD_SIZE = 1
-    # Initialize distributed training if in distributed environment (e.g. torchrun)
-    if "LOCAL_RANK" in os.environ:
+
+    # Setup device environment
+    setup_device_environment()
+    device = get_optimal_device()
+
+    # Initialize distributed training if supported and in distributed environment
+    if "LOCAL_RANK" in os.environ and supports_distributed_training():
         # Initialize distributed, default device and dtype
-        dist.init_process_group(backend="nccl")
+        backend = "nccl" if device.type == "cuda" else "gloo"
+        dist.init_process_group(backend=backend)
 
         RANK = dist.get_rank()
         WORLD_SIZE = dist.get_world_size()
 
-        torch.cuda.set_device(int(os.environ["LOCAL_RANK"]))
+        if device.type == "cuda":
+            torch.cuda.set_device(int(os.environ["LOCAL_RANK"]))
+    elif "LOCAL_RANK" in os.environ:
+        print(f"Warning: Distributed evaluation requested but not supported on {device.type}. Running single-device evaluation.")
+
+    print(f"Evaluation using device: {get_device_name()}")
 
     with open(os.path.join(os.path.dirname(eval_cfg.checkpoint), "all_config.yaml"), "r") as f:
         config = PretrainConfig(**yaml.safe_load(f))

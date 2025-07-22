@@ -20,6 +20,11 @@ from adam_atan2 import AdamATan2
 
 from puzzle_dataset import PuzzleDataset, PuzzleDatasetConfig, PuzzleDatasetMetadata
 from utils.functions import load_model_class, get_model_source_path
+from utils.device_utils import (
+    get_optimal_device, get_device_name, setup_device_environment,
+    move_to_device, get_recommended_batch_size, supports_distributed_training,
+    get_compile_mode
+)
 from models.sparse_embedding import CastedSparseEmbeddingSignSGD_Distributed
 
 
@@ -121,10 +126,14 @@ def create_model(config: PretrainConfig, train_metadata: PuzzleDatasetMetadata, 
     model_cls = load_model_class(config.arch.name)
     loss_head_cls = load_model_class(config.arch.loss.name)
 
-    with torch.device("cuda"):
+    device = get_optimal_device()
+    with torch.device(device):
         model: nn.Module = model_cls(model_cfg)
         model = loss_head_cls(model, **config.arch.loss.__pydantic_extra__)  # type: ignore
-        if "DISABLE_COMPILE" not in os.environ:
+
+        # Only compile if supported and not disabled
+        compile_mode = get_compile_mode()
+        if "DISABLE_COMPILE" not in os.environ and compile_mode is not None:
             model = torch.compile(model, dynamic=False)  # type: ignore
 
         # Broadcast parameters from rank 0
@@ -212,11 +221,12 @@ def train_batch(config: PretrainConfig, train_state: TrainState, batch: Any, glo
         return
 
     # To device
-    batch = {k: v.cuda() for k, v in batch.items()}
+    device = get_optimal_device()
+    batch = move_to_device(batch, device)
 
     # Init carry if it is None
     if train_state.carry is None:
-        with torch.device("cuda"):
+        with torch.device(device):
             train_state.carry = train_state.model.initial_carry(batch)  # type: ignore
 
     # Forward
@@ -276,8 +286,9 @@ def evaluate(config: PretrainConfig, train_state: TrainState, eval_loader: torch
         carry = None
         for set_name, batch, global_batch_size in eval_loader:
             # To device
-            batch = {k: v.cuda() for k, v in batch.items()}
-            with torch.device("cuda"):
+            device = get_optimal_device()
+            batch = move_to_device(batch, device)
+            with torch.device(device):
                 carry = train_state.model.initial_carry(batch)  # type: ignore
 
             # Forward
@@ -382,18 +393,37 @@ def launch(hydra_config: DictConfig):
     RANK = 0
     WORLD_SIZE = 1
 
-    # Initialize distributed training if in distributed environment (e.g. torchrun)
-    if "LOCAL_RANK" in os.environ:
+    # Setup device environment
+    setup_device_environment()
+    device = get_optimal_device()
+
+    # Initialize distributed training if supported and in distributed environment
+    if "LOCAL_RANK" in os.environ and supports_distributed_training():
         # Initialize distributed, default device and dtype
-        dist.init_process_group(backend="nccl")
+        backend = "nccl" if device.type == "cuda" else "gloo"
+        dist.init_process_group(backend=backend)
 
         RANK = dist.get_rank()
         WORLD_SIZE = dist.get_world_size()
 
-        torch.cuda.set_device(int(os.environ["LOCAL_RANK"]))
+        if device.type == "cuda":
+            torch.cuda.set_device(int(os.environ["LOCAL_RANK"]))
+    elif "LOCAL_RANK" in os.environ:
+        print(f"Warning: Distributed training requested but not supported on {device.type}. Running single-device training.")
         
     # Load sync'ed config
     config = load_synced_config(hydra_config, rank=RANK, world_size=WORLD_SIZE)
+
+    # Print device information
+    if RANK == 0:
+        print(f"Using device: {get_device_name()}")
+        print(f"World size: {WORLD_SIZE}")
+
+        # Adjust batch size for device capabilities
+        original_batch_size = config.global_batch_size
+        config.global_batch_size = get_recommended_batch_size(config.global_batch_size)
+        if config.global_batch_size != original_batch_size:
+            print(f"Adjusted batch size from {original_batch_size} to {config.global_batch_size} for device compatibility")
 
     # Seed RNGs to ensure consistency
     torch.random.manual_seed(config.seed + RANK)
