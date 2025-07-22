@@ -4,7 +4,7 @@ torchvision
 torchaudio
 
 # Core dependencies
-adam-atan2
+# adam-atan2  # Moved to conditional installation - requires CUDA
 einops
 tqdm
 coolname

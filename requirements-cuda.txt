@@ -1,0 +1,8 @@
+# Requirements for CUDA-enabled systems
+# Install with: pip install -r requirements.txt -r requirements-cuda.txt
+
+# CUDA-specific optimizers
+adam-atan2
+
+# Optional CUDA extensions (install if available)
+# flash-attn  # Install separately based on GPU architecture

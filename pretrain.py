@@ -16,7 +16,8 @@ import coolname
 import hydra
 import pydantic
 from omegaconf import DictConfig
-from adam_atan2 import AdamATan2
+# Removed direct import - now using device-aware optimizer factory
+# from adam_atan2 import AdamATan2
 
 from puzzle_dataset import PuzzleDataset, PuzzleDatasetConfig, PuzzleDatasetMetadata
 from utils.functions import load_model_class, get_model_source_path
@@ -25,6 +26,7 @@ from utils.device_utils import (
     move_to_device, get_recommended_batch_size, supports_distributed_training,
     get_compile_mode
 )
+from utils.optimizer_utils import get_adam_atan2_optimizer
 from models.sparse_embedding import CastedSparseEmbeddingSignSGD_Distributed
 
 
@@ -152,12 +154,13 @@ def create_model(config: PretrainConfig, train_metadata: PuzzleDatasetMetadata, 
 
             world_size=world_size
         ),
-        AdamATan2(
+        get_adam_atan2_optimizer(
             model.parameters(),
 
             lr=0,  # Needs to be set by scheduler
             weight_decay=config.weight_decay,
-            betas=(config.beta1, config.beta2)
+            betas=(config.beta1, config.beta2),
+            device=device
         )
     ]
     optimizer_lrs = [

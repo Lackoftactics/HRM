@@ -1,0 +1,5 @@
+# Requirements for Apple Silicon (MPS) systems
+# Install with: pip install -r requirements.txt -r requirements-apple-silicon.txt
+
+# Apple Silicon specific packages (if any)
+# Currently using standard PyTorch optimizers as fallback

@@ -33,9 +33,17 @@ pip install --upgrade pip
 echo "Installing PyTorch for Apple Silicon..."
 pip install torch torchvision torchaudio
 
-# Install other requirements
-echo "Installing other requirements..."
+# Install base requirements (excluding CUDA-dependent packages)
+echo "Installing base requirements..."
 pip install -r requirements.txt
+
+# Install Apple Silicon specific requirements
+echo "Installing Apple Silicon specific requirements..."
+pip install -r requirements-apple-silicon.txt
+
+# Try to install adam-atan2, but don't fail if it doesn't work
+echo "Attempting to install adam-atan2 (will use fallback if this fails)..."
+pip install adam-atan2 || echo "adam-atan2 installation failed - will use AdamW fallback"
 
 # Set environment variables for Apple Silicon optimization
 echo "Setting up environment variables..."

@@ -1,0 +1,35 @@
+# Factorization training config optimized for Apple Silicon (M4 Pro)
+
+defaults:
+  - arch: hrm_factorization_apple_silicon
+  - _self_
+
+hydra:
+  output_subdir: null
+
+# Data path
+data_path: data/factorization-1k
+
+# Hyperparams - Training (optimized for Apple Silicon and small dataset)
+global_batch_size: 32  # Smaller batch size for Apple Silicon and small dataset
+
+epochs: 50000  # More epochs for small dataset
+eval_interval: 2000
+checkpoint_every_eval: True
+
+lr: 3e-4  # Higher learning rate for small dataset
+lr_min_ratio: 0.1
+lr_warmup_steps: 1000
+
+# Standard hyperparameter settings for LM, as used in Llama
+beta1: 0.9
+beta2: 0.95
+weight_decay: 0.1
+puzzle_emb_weight_decay: 0.1
+
+# Hyperparams - Puzzle embeddings training
+puzzle_emb_lr: 3e-3  # Higher learning rate for embeddings
+
+# Apple Silicon specific settings
+# Disable compilation for better compatibility
+# Set via environment variable: DISABLE_COMPILE=true

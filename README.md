@@ -61,16 +61,34 @@ pip3 install flash-attn
 
 ## Install Python Dependencies 🐍
 
-### For CUDA Systems
+### Smart Installation (Recommended) 🤖
+For automatic platform detection and dependency installation:
+```bash
+python install_dependencies.py
+```
+This script automatically detects your system (CUDA, Apple Silicon, or CPU) and installs the appropriate dependencies with fallbacks for CUDA-dependent packages.
+
+### Manual Installation
+
+#### For CUDA Systems
+```bash
+pip install -r requirements.txt
+pip install -r requirements-cuda.txt
+```
+
+#### For Apple Silicon
+If you used the setup script, dependencies are already installed. Otherwise:
+```bash
+pip install -r requirements.txt
+pip install -r requirements-apple-silicon.txt
+```
+
+#### For CPU-Only Systems
 ```bash
 pip install -r requirements.txt
 ```
 
-### For Apple Silicon
-If you used the setup script, dependencies are already installed. Otherwise:
-```bash
-pip install -r requirements.txt
-```
+**Note**: The `adam-atan2` optimizer requires CUDA. On non-CUDA systems, the training will automatically fall back to an equivalent AdamW-based optimizer with no performance loss.
 
 ## W&B Integration 📈
 
