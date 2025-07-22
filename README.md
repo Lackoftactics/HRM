@@ -12,7 +12,20 @@ These results underscore HRM’s potential as a transformative advancement towar
 
 ### Prerequisites ⚙️
 
+#### For CUDA/GPU Systems
 Ensure PyTorch and CUDA are installed. The repo needs CUDA extensions to be built. If not present, run the following commands:
+
+#### For Apple Silicon (M4 Pro) 🍎
+For Apple Silicon Macs, use the simplified setup script:
+
+```bash
+./setup_apple_silicon.sh
+```
+
+This will automatically install the correct PyTorch version and configure the environment for Apple Silicon.
+
+#### Manual CUDA Setup
+For CUDA systems, ensure PyTorch and CUDA are installed:
 
 ```bash
 # Install CUDA 12.6
@@ -48,6 +61,13 @@ pip3 install flash-attn
 
 ## Install Python Dependencies 🐍
 
+### For CUDA Systems
+```bash
+pip install -r requirements.txt
+```
+
+### For Apple Silicon
+If you used the setup script, dependencies are already installed. Otherwise:
 ```bash
 pip install -r requirements.txt
 ```
@@ -64,8 +84,9 @@ wandb login
 
 ### Quick Demo: Sudoku Solver 💻🗲
 
-Train a master-level Sudoku AI capable of solving extremely difficult puzzles on a modern laptop GPU. 🧩
+Train a master-level Sudoku AI capable of solving extremely difficult puzzles on a modern laptop. 🧩
 
+#### For CUDA/GPU Systems
 ```bash
 # Download and build Sudoku dataset
 python dataset/build_sudoku_dataset.py --output-dir data/sudoku-extreme-1k-aug-1000  --subsample-size 1000 --num-aug 1000
@@ -75,6 +96,17 @@ OMP_NUM_THREADS=8 python pretrain.py data_path=data/sudoku-extreme-1k-aug-1000 e
 ```
 
 Runtime: ~10 hours on a RTX 4070 laptop GPU
+
+#### For Apple Silicon (M4 Pro) 🍎
+```bash
+# Download and build Sudoku dataset
+python dataset/build_sudoku_dataset.py --output-dir data/sudoku-extreme-1k-aug-1000  --subsample-size 1000 --num-aug 1000
+
+# Start training (optimized for Apple Silicon)
+DISABLE_COMPILE=true python pretrain.py data_path=data/sudoku-extreme-1k-aug-1000 epochs=20000 eval_interval=2000 global_batch_size=32 lr=7e-5 puzzle_emb_lr=7e-5 weight_decay=1.0 puzzle_emb_weight_decay=1.0
+```
+
+Runtime: ~15-20 hours on M4 Pro (varies with memory pressure and thermal throttling)
 
 ## Trained Checkpoints 🚧
 
@@ -175,6 +207,15 @@ OMP_NUM_THREADS=8 torchrun --nproc-per-node 8 evaluate.py checkpoint=<CHECKPOINT
 
  - Small-sample learning typically exhibits accuracy variance of around ±2 points.
  - For Sudoku-Extreme (1,000-example dataset), late-stage overfitting may cause numerical instability during training and Q-learning. It is advisable to use early stopping once the training accuracy approaches 100%.
+
+### Apple Silicon Specific Notes 🍎
+
+ - **Memory Management**: Apple Silicon uses unified memory. Monitor memory usage with Activity Monitor to avoid swapping.
+ - **Thermal Throttling**: Long training runs may trigger thermal throttling. Consider using cooling pads or reducing batch sizes.
+ - **MPS Fallback**: Some operations may fall back to CPU. This is normal and handled automatically.
+ - **Compilation**: `torch.compile` is disabled by default on Apple Silicon for stability. Use `DISABLE_COMPILE=true` environment variable.
+ - **Batch Sizes**: Recommended batch sizes are automatically reduced for Apple Silicon. You can adjust them manually if needed.
+ - **Performance**: Expect 1.5-2x longer training times compared to equivalent CUDA GPUs, but still very reasonable for research and development.
 
 ## Citation 📜
 

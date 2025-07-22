@@ -6,9 +6,16 @@ import torch.nn.functional as F
 
 try:
     from flash_attn_interface import flash_attn_func  # type: ignore[import]
+    FLASH_ATTN_AVAILABLE = True
 except ImportError:
-    # Fallback to FlashAttention 2
-    from flash_attn import flash_attn_func  # type: ignore[import]
+    try:
+        # Fallback to FlashAttention 2
+        from flash_attn import flash_attn_func  # type: ignore[import]
+        FLASH_ATTN_AVAILABLE = True
+    except ImportError:
+        # No FlashAttention available (e.g., on Apple Silicon)
+        FLASH_ATTN_AVAILABLE = False
+        flash_attn_func = None
 
 from models.common import trunc_normal_init_
 
@@ -126,14 +133,51 @@ class Attention(nn.Module):
             cos, sin = cos_sin
             query, key = apply_rotary_pos_emb(query, key, cos, sin)
 
-        # flash attn
-        attn_output = flash_attn_func(q=query, k=key, v=value, causal=self.causal)
-        if isinstance(attn_output, tuple):  # fa2 and fa3 compatibility
-            attn_output = attn_output[0]
+        # Use FlashAttention if available, otherwise fallback to standard attention
+        if FLASH_ATTN_AVAILABLE and flash_attn_func is not None:
+            # flash attn
+            attn_output = flash_attn_func(q=query, k=key, v=value, causal=self.causal)
+            if isinstance(attn_output, tuple):  # fa2 and fa3 compatibility
+                attn_output = attn_output[0]
+            # attn_output: [batch_size, seq_len, num_heads, head_dim]
+            attn_output = attn_output.view(batch_size, seq_len, self.output_size)
+        else:
+            # Fallback to standard PyTorch attention
+            attn_output = self._standard_attention(query, key, value, batch_size, seq_len)
 
-        # attn_output: [batch_size, num_heads, seq_len, head_dim]
-        attn_output = attn_output.view(batch_size, seq_len, self.output_size)  # type: ignore
         return self.o_proj(attn_output)
+
+    def _standard_attention(self, query, key, value, batch_size, seq_len):
+        """Fallback standard attention implementation for non-CUDA devices"""
+        # query, key, value: [batch_size, seq_len, num_heads, head_dim]
+
+        # Transpose to [batch_size, num_heads, seq_len, head_dim]
+        query = query.transpose(1, 2)
+        key = key.transpose(1, 2)
+        value = value.transpose(1, 2)
+
+        # Compute attention scores
+        scale = 1.0 / (self.head_dim ** 0.5)
+        scores = torch.matmul(query, key.transpose(-2, -1)) * scale
+
+        # Apply causal mask if needed
+        if self.causal:
+            mask = torch.triu(torch.ones(seq_len, seq_len, device=query.device), diagonal=1).bool()
+            scores.masked_fill_(mask, float('-inf'))
+
+        # Apply softmax
+        attn_weights = F.softmax(scores, dim=-1)
+
+        # Apply attention to values
+        attn_output = torch.matmul(attn_weights, value)
+
+        # Transpose back to [batch_size, seq_len, num_heads, head_dim]
+        attn_output = attn_output.transpose(1, 2)
+
+        # Reshape to [batch_size, seq_len, output_size]
+        attn_output = attn_output.contiguous().view(batch_size, seq_len, self.output_size)
+
+        return attn_output
 
 
 class SwiGLU(nn.Module):
