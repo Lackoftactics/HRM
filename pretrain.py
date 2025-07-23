@@ -314,7 +314,7 @@ def evaluate(config: PretrainConfig, train_state: TrainState, eval_loader: torch
             
             if metric_values is None:
                 metric_keys = list(sorted(metrics.keys()))  # Sort keys to guarantee all processes use the same order.
-                metric_values = torch.zeros((len(set_ids), len(metrics.values())), dtype=torch.float32, device="cuda")
+                metric_values = torch.zeros((len(set_ids), len(metrics.values())), dtype=torch.float32, device=device)
                 
             metric_values[set_id] += torch.stack([metrics[k] for k in metric_keys])
             metric_global_batch_size[set_id] += global_batch_size

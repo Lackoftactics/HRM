@@ -1,0 +1,36 @@
+# Simple factorization training config optimized for fast learning
+# Numbers 2-100 for easier learning task
+
+defaults:
+  - arch: hrm_factorization_simple
+  - _self_
+
+hydra:
+  output_subdir: null
+
+# Data path
+data_path: data/factorization-simple
+
+# Hyperparams - Training (optimized for fast learning)
+global_batch_size: 32  # Good batch size for small dataset
+
+epochs: 2000  # More epochs for thorough learning
+eval_interval: 100  # Frequent evaluation
+checkpoint_every_eval: True
+
+lr: 1e-3  # Higher learning rate for faster convergence
+lr_min_ratio: 0.1
+lr_warmup_steps: 50  # Very short warmup for fast start
+
+# Standard hyperparameter settings for LM, as used in Llama
+beta1: 0.9
+beta2: 0.95
+weight_decay: 0.1
+puzzle_emb_weight_decay: 0.1
+
+# Hyperparams - Puzzle embeddings training
+puzzle_emb_lr: 1e-2  # High learning rate for embeddings
+
+# Apple Silicon specific settings
+# Disable compilation for better compatibility
+# Set via environment variable: DISABLE_COMPILE=true

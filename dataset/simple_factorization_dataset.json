@@ -1,0 +1,1334 @@
+[
+  {
+    "input": "74 SEP",
+    "output": "2 x 37 END",
+    "number": 74,
+    "prime_factors": [
+      2,
+      37
+    ],
+    "factor_powers": [
+      1,
+      1
+    ],
+    "complexity_level": "hard"
+  },
+  {
+    "input": "62 SEP",
+    "output": "2 x 31 END",
+    "number": 62,
+    "prime_factors": [
+      2,
+      31
+    ],
+    "factor_powers": [
+      1,
+      1
+    ],
+    "complexity_level": "hard"
+  },
+  {
+    "input": "92 SEP",
+    "output": "2 ^ 2 x 23 END",
+    "number": 92,
+    "prime_factors": [
+      2,
+      23
+    ],
+    "factor_powers": [
+      2,
+      1
+    ],
+    "complexity_level": "hard"
+  },
+  {
+    "input": "11 SEP",
+    "output": "11 END",
+    "number": 11,
+    "prime_factors": [
+      11
+    ],
+    "factor_powers": [
+      1
+    ],
+    "complexity_level": "medium"
+  },
+  {
+    "input": "35 SEP",
+    "output": "5 x 7 END",
+    "number": 35,
+    "prime_factors": [
+      5,
+      7
+    ],
+    "factor_powers": [
+      1,
+      1
+    ],
+    "complexity_level": "medium"
+  },
+  {
+    "input": "28 SEP",
+    "output": "2 ^ 2 x 7 END",
+    "number": 28,
+    "prime_factors": [
+      2,
+      7
+    ],
+    "factor_powers": [
+      2,
+      1
+    ],
+    "complexity_level": "medium"
+  },
+  {
+    "input": "3 SEP",
+    "output": "3 END",
+    "number": 3,
+    "prime_factors": [
+      3
+    ],
+    "factor_powers": [
+      1
+    ],
+    "complexity_level": "simple"
+  },
+  {
+    "input": "76 SEP",
+    "output": "2 ^ 2 x 19 END",
+    "number": 76,
+    "prime_factors": [
+      2,
+      19
+    ],
+    "factor_powers": [
+      2,
+      1
+    ],
+    "complexity_level": "hard"
+  },
+  {
+    "input": "17 SEP",
+    "output": "17 END",
+    "number": 17,
+    "prime_factors": [
+      17
+    ],
+    "factor_powers": [
+      1
+    ],
+    "complexity_level": "medium"
+  },
+  {
+    "input": "64 SEP",
+    "output": "2 ^ 6 END",
+    "number": 64,
+    "prime_factors": [
+      2
+    ],
+    "factor_powers": [
+      6
+    ],
+    "complexity_level": "hard"
+  },
+  {
+    "input": "81 SEP",
+    "output": "3 ^ 4 END",
+    "number": 81,
+    "prime_factors": [
+      3
+    ],
+    "factor_powers": [
+      4
+    ],
+    "complexity_level": "hard"
+  },
+  {
+    "input": "12 SEP",
+    "output": "2 ^ 2 x 3 END",
+    "number": 12,
+    "prime_factors": [
+      2,
+      3
+    ],
+    "factor_powers": [
+      2,
+      1
+    ],
+    "complexity_level": "medium"
+  },
+  {
+    "input": "54 SEP",
+    "output": "2 x 3 ^ 3 END",
+    "number": 54,
+    "prime_factors": [
+      2,
+      3
+    ],
+    "factor_powers": [
+      1,
+      3
+    ],
+    "complexity_level": "hard"
+  },
+  {
+    "input": "91 SEP",
+    "output": "7 x 13 END",
+    "number": 91,
+    "prime_factors": [
+      7,
+      13
+    ],
+    "factor_powers": [
+      1,
+      1
+    ],
+    "complexity_level": "hard"
+  },
+  {
+    "input": "53 SEP",
+    "output": "53 END",
+    "number": 53,
+    "prime_factors": [
+      53
+    ],
+    "factor_powers": [
+      1
+    ],
+    "complexity_level": "hard"
+  },
+  {
+    "input": "93 SEP",
+    "output": "3 x 31 END",
+    "number": 93,
+    "prime_factors": [
+      3,
+      31
+    ],
+    "factor_powers": [
+      1,
+      1
+    ],
+    "complexity_level": "hard"
+  },
+  {
+    "input": "51 SEP",
+    "output": "3 x 17 END",
+    "number": 51,
+    "prime_factors": [
+      3,
+      17
+    ],
+    "factor_powers": [
+      1,
+      1
+    ],
+    "complexity_level": "hard"
+  },
+  {
+    "input": "43 SEP",
+    "output": "43 END",
+    "number": 43,
+    "prime_factors": [
+      43
+    ],
+    "factor_powers": [
+      1
+    ],
+    "complexity_level": "medium"
+  },
+  {
+    "input": "68 SEP",
+    "output": "2 ^ 2 x 17 END",
+    "number": 68,
+    "prime_factors": [
+      2,
+      17
+    ],
+    "factor_powers": [
+      2,
+      1
+    ],
+    "complexity_level": "hard"
+  },
+  {
+    "input": "32 SEP",
+    "output": "2 ^ 5 END",
+    "number": 32,
+    "prime_factors": [
+      2
+    ],
+    "factor_powers": [
+      5
+    ],
+    "complexity_level": "medium"
+  },
+  {
+    "input": "58 SEP",
+    "output": "2 x 29 END",
+    "number": 58,
+    "prime_factors": [
+      2,
+      29
+    ],
+    "factor_powers": [
+      1,
+      1
+    ],
+    "complexity_level": "hard"
+  },
+  {
+    "input": "75 SEP",
+    "output": "3 x 5 ^ 2 END",
+    "number": 75,
+    "prime_factors": [
+      3,
+      5
+    ],
+    "factor_powers": [
+      1,
+      2
+    ],
+    "complexity_level": "hard"
+  },
+  {
+    "input": "47 SEP",
+    "output": "47 END",
+    "number": 47,
+    "prime_factors": [
+      47
+    ],
+    "factor_powers": [
+      1
+    ],
+    "complexity_level": "medium"
+  },
+  {
+    "input": "34 SEP",
+    "output": "2 x 17 END",
+    "number": 34,
+    "prime_factors": [
+      2,
+      17
+    ],
+    "factor_powers": [
+      1,
+      1
+    ],
+    "complexity_level": "medium"
+  },
+  {
+    "input": "84 SEP",
+    "output": "2 ^ 2 x 3 x 7 END",
+    "number": 84,
+    "prime_factors": [
+      2,
+      3,
+      7
+    ],
+    "factor_powers": [
+      2,
+      1,
+      1
+    ],
+    "complexity_level": "hard"
+  },
+  {
+    "input": "70 SEP",
+    "output": "2 x 5 x 7 END",
+    "number": 70,
+    "prime_factors": [
+      2,
+      5,
+      7
+    ],
+    "factor_powers": [
+      1,
+      1,
+      1
+    ],
+    "complexity_level": "hard"
+  },
+  {
+    "input": "95 SEP",
+    "output": "5 x 19 END",
+    "number": 95,
+    "prime_factors": [
+      5,
+      19
+    ],
+    "factor_powers": [
+      1,
+      1
+    ],
+    "complexity_level": "hard"
+  },
+  {
+    "input": "10 SEP",
+    "output": "2 x 5 END",
+    "number": 10,
+    "prime_factors": [
+      2,
+      5
+    ],
+    "factor_powers": [
+      1,
+      1
+    ],
+    "complexity_level": "simple"
+  },
+  {
+    "input": "39 SEP",
+    "output": "3 x 13 END",
+    "number": 39,
+    "prime_factors": [
+      3,
+      13
+    ],
+    "factor_powers": [
+      1,
+      1
+    ],
+    "complexity_level": "medium"
+  },
+  {
+    "input": "80 SEP",
+    "output": "2 ^ 4 x 5 END",
+    "number": 80,
+    "prime_factors": [
+      2,
+      5
+    ],
+    "factor_powers": [
+      4,
+      1
+    ],
+    "complexity_level": "hard"
+  },
+  {
+    "input": "65 SEP",
+    "output": "5 x 13 END",
+    "number": 65,
+    "prime_factors": [
+      5,
+      13
+    ],
+    "factor_powers": [
+      1,
+      1
+    ],
+    "complexity_level": "hard"
+  },
+  {
+    "input": "49 SEP",
+    "output": "7 ^ 2 END",
+    "number": 49,
+    "prime_factors": [
+      7
+    ],
+    "factor_powers": [
+      2
+    ],
+    "complexity_level": "medium"
+  },
+  {
+    "input": "46 SEP",
+    "output": "2 x 23 END",
+    "number": 46,
+    "prime_factors": [
+      2,
+      23
+    ],
+    "factor_powers": [
+      1,
+      1
+    ],
+    "complexity_level": "medium"
+  },
+  {
+    "input": "44 SEP",
+    "output": "2 ^ 2 x 11 END",
+    "number": 44,
+    "prime_factors": [
+      2,
+      11
+    ],
+    "factor_powers": [
+      2,
+      1
+    ],
+    "complexity_level": "medium"
+  },
+  {
+    "input": "99 SEP",
+    "output": "3 ^ 2 x 11 END",
+    "number": 99,
+    "prime_factors": [
+      3,
+      11
+    ],
+    "factor_powers": [
+      2,
+      1
+    ],
+    "complexity_level": "hard"
+  },
+  {
+    "input": "52 SEP",
+    "output": "2 ^ 2 x 13 END",
+    "number": 52,
+    "prime_factors": [
+      2,
+      13
+    ],
+    "factor_powers": [
+      2,
+      1
+    ],
+    "complexity_level": "hard"
+  },
+  {
+    "input": "86 SEP",
+    "output": "2 x 43 END",
+    "number": 86,
+    "prime_factors": [
+      2,
+      43
+    ],
+    "factor_powers": [
+      1,
+      1
+    ],
+    "complexity_level": "hard"
+  },
+  {
+    "input": "14 SEP",
+    "output": "2 x 7 END",
+    "number": 14,
+    "prime_factors": [
+      2,
+      7
+    ],
+    "factor_powers": [
+      1,
+      1
+    ],
+    "complexity_level": "medium"
+  },
+  {
+    "input": "38 SEP",
+    "output": "2 x 19 END",
+    "number": 38,
+    "prime_factors": [
+      2,
+      19
+    ],
+    "factor_powers": [
+      1,
+      1
+    ],
+    "complexity_level": "medium"
+  },
+  {
+    "input": "25 SEP",
+    "output": "5 ^ 2 END",
+    "number": 25,
+    "prime_factors": [
+      5
+    ],
+    "factor_powers": [
+      2
+    ],
+    "complexity_level": "medium"
+  },
+  {
+    "input": "41 SEP",
+    "output": "41 END",
+    "number": 41,
+    "prime_factors": [
+      41
+    ],
+    "factor_powers": [
+      1
+    ],
+    "complexity_level": "medium"
+  },
+  {
+    "input": "42 SEP",
+    "output": "2 x 3 x 7 END",
+    "number": 42,
+    "prime_factors": [
+      2,
+      3,
+      7
+    ],
+    "factor_powers": [
+      1,
+      1,
+      1
+    ],
+    "complexity_level": "medium"
+  },
+  {
+    "input": "20 SEP",
+    "output": "2 ^ 2 x 5 END",
+    "number": 20,
+    "prime_factors": [
+      2,
+      5
+    ],
+    "factor_powers": [
+      2,
+      1
+    ],
+    "complexity_level": "medium"
+  },
+  {
+    "input": "67 SEP",
+    "output": "67 END",
+    "number": 67,
+    "prime_factors": [
+      67
+    ],
+    "factor_powers": [
+      1
+    ],
+    "complexity_level": "hard"
+  },
+  {
+    "input": "60 SEP",
+    "output": "2 ^ 2 x 3 x 5 END",
+    "number": 60,
+    "prime_factors": [
+      2,
+      3,
+      5
+    ],
+    "factor_powers": [
+      2,
+      1,
+      1
+    ],
+    "complexity_level": "hard"
+  },
+  {
+    "input": "78 SEP",
+    "output": "2 x 3 x 13 END",
+    "number": 78,
+    "prime_factors": [
+      2,
+      3,
+      13
+    ],
+    "factor_powers": [
+      1,
+      1,
+      1
+    ],
+    "complexity_level": "hard"
+  },
+  {
+    "input": "9 SEP",
+    "output": "3 ^ 2 END",
+    "number": 9,
+    "prime_factors": [
+      3
+    ],
+    "factor_powers": [
+      2
+    ],
+    "complexity_level": "simple"
+  },
+  {
+    "input": "36 SEP",
+    "output": "2 ^ 2 x 3 ^ 2 END",
+    "number": 36,
+    "prime_factors": [
+      2,
+      3
+    ],
+    "factor_powers": [
+      2,
+      2
+    ],
+    "complexity_level": "medium"
+  },
+  {
+    "input": "82 SEP",
+    "output": "2 x 41 END",
+    "number": 82,
+    "prime_factors": [
+      2,
+      41
+    ],
+    "factor_powers": [
+      1,
+      1
+    ],
+    "complexity_level": "hard"
+  },
+  {
+    "input": "48 SEP",
+    "output": "2 ^ 4 x 3 END",
+    "number": 48,
+    "prime_factors": [
+      2,
+      3
+    ],
+    "factor_powers": [
+      4,
+      1
+    ],
+    "complexity_level": "medium"
+  },
+  {
+    "input": "4 SEP",
+    "output": "2 ^ 2 END",
+    "number": 4,
+    "prime_factors": [
+      2
+    ],
+    "factor_powers": [
+      2
+    ],
+    "complexity_level": "simple"
+  },
+  {
+    "input": "18 SEP",
+    "output": "2 x 3 ^ 2 END",
+    "number": 18,
+    "prime_factors": [
+      2,
+      3
+    ],
+    "factor_powers": [
+      1,
+      2
+    ],
+    "complexity_level": "medium"
+  },
+  {
+    "input": "40 SEP",
+    "output": "2 ^ 3 x 5 END",
+    "number": 40,
+    "prime_factors": [
+      2,
+      5
+    ],
+    "factor_powers": [
+      3,
+      1
+    ],
+    "complexity_level": "medium"
+  },
+  {
+    "input": "57 SEP",
+    "output": "3 x 19 END",
+    "number": 57,
+    "prime_factors": [
+      3,
+      19
+    ],
+    "factor_powers": [
+      1,
+      1
+    ],
+    "complexity_level": "hard"
+  },
+  {
+    "input": "69 SEP",
+    "output": "3 x 23 END",
+    "number": 69,
+    "prime_factors": [
+      3,
+      23
+    ],
+    "factor_powers": [
+      1,
+      1
+    ],
+    "complexity_level": "hard"
+  },
+  {
+    "input": "24 SEP",
+    "output": "2 ^ 3 x 3 END",
+    "number": 24,
+    "prime_factors": [
+      2,
+      3
+    ],
+    "factor_powers": [
+      3,
+      1
+    ],
+    "complexity_level": "medium"
+  },
+  {
+    "input": "61 SEP",
+    "output": "61 END",
+    "number": 61,
+    "prime_factors": [
+      61
+    ],
+    "factor_powers": [
+      1
+    ],
+    "complexity_level": "hard"
+  },
+  {
+    "input": "26 SEP",
+    "output": "2 x 13 END",
+    "number": 26,
+    "prime_factors": [
+      2,
+      13
+    ],
+    "factor_powers": [
+      1,
+      1
+    ],
+    "complexity_level": "medium"
+  },
+  {
+    "input": "7 SEP",
+    "output": "7 END",
+    "number": 7,
+    "prime_factors": [
+      7
+    ],
+    "factor_powers": [
+      1
+    ],
+    "complexity_level": "simple"
+  },
+  {
+    "input": "8 SEP",
+    "output": "2 ^ 3 END",
+    "number": 8,
+    "prime_factors": [
+      2
+    ],
+    "factor_powers": [
+      3
+    ],
+    "complexity_level": "simple"
+  },
+  {
+    "input": "23 SEP",
+    "output": "23 END",
+    "number": 23,
+    "prime_factors": [
+      23
+    ],
+    "factor_powers": [
+      1
+    ],
+    "complexity_level": "medium"
+  },
+  {
+    "input": "50 SEP",
+    "output": "2 x 5 ^ 2 END",
+    "number": 50,
+    "prime_factors": [
+      2,
+      5
+    ],
+    "factor_powers": [
+      1,
+      2
+    ],
+    "complexity_level": "medium"
+  },
+  {
+    "input": "63 SEP",
+    "output": "3 ^ 2 x 7 END",
+    "number": 63,
+    "prime_factors": [
+      3,
+      7
+    ],
+    "factor_powers": [
+      2,
+      1
+    ],
+    "complexity_level": "hard"
+  },
+  {
+    "input": "100 SEP",
+    "output": "2 ^ 2 x 5 ^ 2 END",
+    "number": 100,
+    "prime_factors": [
+      2,
+      5
+    ],
+    "factor_powers": [
+      2,
+      2
+    ],
+    "complexity_level": "hard"
+  },
+  {
+    "input": "21 SEP",
+    "output": "3 x 7 END",
+    "number": 21,
+    "prime_factors": [
+      3,
+      7
+    ],
+    "factor_powers": [
+      1,
+      1
+    ],
+    "complexity_level": "medium"
+  },
+  {
+    "input": "72 SEP",
+    "output": "2 ^ 3 x 3 ^ 2 END",
+    "number": 72,
+    "prime_factors": [
+      2,
+      3
+    ],
+    "factor_powers": [
+      3,
+      2
+    ],
+    "complexity_level": "hard"
+  },
+  {
+    "input": "45 SEP",
+    "output": "3 ^ 2 x 5 END",
+    "number": 45,
+    "prime_factors": [
+      3,
+      5
+    ],
+    "factor_powers": [
+      2,
+      1
+    ],
+    "complexity_level": "medium"
+  },
+  {
+    "input": "87 SEP",
+    "output": "3 x 29 END",
+    "number": 87,
+    "prime_factors": [
+      3,
+      29
+    ],
+    "factor_powers": [
+      1,
+      1
+    ],
+    "complexity_level": "hard"
+  },
+  {
+    "input": "22 SEP",
+    "output": "2 x 11 END",
+    "number": 22,
+    "prime_factors": [
+      2,
+      11
+    ],
+    "factor_powers": [
+      1,
+      1
+    ],
+    "complexity_level": "medium"
+  },
+  {
+    "input": "2 SEP",
+    "output": "2 END",
+    "number": 2,
+    "prime_factors": [
+      2
+    ],
+    "factor_powers": [
+      1
+    ],
+    "complexity_level": "simple"
+  },
+  {
+    "input": "97 SEP",
+    "output": "97 END",
+    "number": 97,
+    "prime_factors": [
+      97
+    ],
+    "factor_powers": [
+      1
+    ],
+    "complexity_level": "hard"
+  },
+  {
+    "input": "59 SEP",
+    "output": "59 END",
+    "number": 59,
+    "prime_factors": [
+      59
+    ],
+    "factor_powers": [
+      1
+    ],
+    "complexity_level": "hard"
+  },
+  {
+    "input": "94 SEP",
+    "output": "2 x 47 END",
+    "number": 94,
+    "prime_factors": [
+      2,
+      47
+    ],
+    "factor_powers": [
+      1,
+      1
+    ],
+    "complexity_level": "hard"
+  },
+  {
+    "input": "55 SEP",
+    "output": "5 x 11 END",
+    "number": 55,
+    "prime_factors": [
+      5,
+      11
+    ],
+    "factor_powers": [
+      1,
+      1
+    ],
+    "complexity_level": "hard"
+  },
+  {
+    "input": "90 SEP",
+    "output": "2 x 3 ^ 2 x 5 END",
+    "number": 90,
+    "prime_factors": [
+      2,
+      3,
+      5
+    ],
+    "factor_powers": [
+      1,
+      2,
+      1
+    ],
+    "complexity_level": "hard"
+  },
+  {
+    "input": "27 SEP",
+    "output": "3 ^ 3 END",
+    "number": 27,
+    "prime_factors": [
+      3
+    ],
+    "factor_powers": [
+      3
+    ],
+    "complexity_level": "medium"
+  },
+  {
+    "input": "73 SEP",
+    "output": "73 END",
+    "number": 73,
+    "prime_factors": [
+      73
+    ],
+    "factor_powers": [
+      1
+    ],
+    "complexity_level": "hard"
+  },
+  {
+    "input": "85 SEP",
+    "output": "5 x 17 END",
+    "number": 85,
+    "prime_factors": [
+      5,
+      17
+    ],
+    "factor_powers": [
+      1,
+      1
+    ],
+    "complexity_level": "hard"
+  },
+  {
+    "input": "79 SEP",
+    "output": "79 END",
+    "number": 79,
+    "prime_factors": [
+      79
+    ],
+    "factor_powers": [
+      1
+    ],
+    "complexity_level": "hard"
+  },
+  {
+    "input": "66 SEP",
+    "output": "2 x 3 x 11 END",
+    "number": 66,
+    "prime_factors": [
+      2,
+      3,
+      11
+    ],
+    "factor_powers": [
+      1,
+      1,
+      1
+    ],
+    "complexity_level": "hard"
+  },
+  {
+    "input": "31 SEP",
+    "output": "31 END",
+    "number": 31,
+    "prime_factors": [
+      31
+    ],
+    "factor_powers": [
+      1
+    ],
+    "complexity_level": "medium"
+  },
+  {
+    "input": "29 SEP",
+    "output": "29 END",
+    "number": 29,
+    "prime_factors": [
+      29
+    ],
+    "factor_powers": [
+      1
+    ],
+    "complexity_level": "medium"
+  },
+  {
+    "input": "89 SEP",
+    "output": "89 END",
+    "number": 89,
+    "prime_factors": [
+      89
+    ],
+    "factor_powers": [
+      1
+    ],
+    "complexity_level": "hard"
+  },
+  {
+    "input": "98 SEP",
+    "output": "2 x 7 ^ 2 END",
+    "number": 98,
+    "prime_factors": [
+      2,
+      7
+    ],
+    "factor_powers": [
+      1,
+      2
+    ],
+    "complexity_level": "hard"
+  },
+  {
+    "input": "6 SEP",
+    "output": "2 x 3 END",
+    "number": 6,
+    "prime_factors": [
+      2,
+      3
+    ],
+    "factor_powers": [
+      1,
+      1
+    ],
+    "complexity_level": "simple"
+  },
+  {
+    "input": "56 SEP",
+    "output": "2 ^ 3 x 7 END",
+    "number": 56,
+    "prime_factors": [
+      2,
+      7
+    ],
+    "factor_powers": [
+      3,
+      1
+    ],
+    "complexity_level": "hard"
+  },
+  {
+    "input": "77 SEP",
+    "output": "7 x 11 END",
+    "number": 77,
+    "prime_factors": [
+      7,
+      11
+    ],
+    "factor_powers": [
+      1,
+      1
+    ],
+    "complexity_level": "hard"
+  },
+  {
+    "input": "13 SEP",
+    "output": "13 END",
+    "number": 13,
+    "prime_factors": [
+      13
+    ],
+    "factor_powers": [
+      1
+    ],
+    "complexity_level": "medium"
+  },
+  {
+    "input": "71 SEP",
+    "output": "71 END",
+    "number": 71,
+    "prime_factors": [
+      71
+    ],
+    "factor_powers": [
+      1
+    ],
+    "complexity_level": "hard"
+  },
+  {
+    "input": "88 SEP",
+    "output": "2 ^ 3 x 11 END",
+    "number": 88,
+    "prime_factors": [
+      2,
+      11
+    ],
+    "factor_powers": [
+      3,
+      1
+    ],
+    "complexity_level": "hard"
+  },
+  {
+    "input": "15 SEP",
+    "output": "3 x 5 END",
+    "number": 15,
+    "prime_factors": [
+      3,
+      5
+    ],
+    "factor_powers": [
+      1,
+      1
+    ],
+    "complexity_level": "medium"
+  },
+  {
+    "input": "19 SEP",
+    "output": "19 END",
+    "number": 19,
+    "prime_factors": [
+      19
+    ],
+    "factor_powers": [
+      1
+    ],
+    "complexity_level": "medium"
+  },
+  {
+    "input": "30 SEP",
+    "output": "2 x 3 x 5 END",
+    "number": 30,
+    "prime_factors": [
+      2,
+      3,
+      5
+    ],
+    "factor_powers": [
+      1,
+      1,
+      1
+    ],
+    "complexity_level": "medium"
+  },
+  {
+    "input": "33 SEP",
+    "output": "3 x 11 END",
+    "number": 33,
+    "prime_factors": [
+      3,
+      11
+    ],
+    "factor_powers": [
+      1,
+      1
+    ],
+    "complexity_level": "medium"
+  },
+  {
+    "input": "37 SEP",
+    "output": "37 END",
+    "number": 37,
+    "prime_factors": [
+      37
+    ],
+    "factor_powers": [
+      1
+    ],
+    "complexity_level": "medium"
+  },
+  {
+    "input": "96 SEP",
+    "output": "2 ^ 5 x 3 END",
+    "number": 96,
+    "prime_factors": [
+      2,
+      3
+    ],
+    "factor_powers": [
+      5,
+      1
+    ],
+    "complexity_level": "hard"
+  },
+  {
+    "input": "5 SEP",
+    "output": "5 END",
+    "number": 5,
+    "prime_factors": [
+      5
+    ],
+    "factor_powers": [
+      1
+    ],
+    "complexity_level": "simple"
+  },
+  {
+    "input": "16 SEP",
+    "output": "2 ^ 4 END",
+    "number": 16,
+    "prime_factors": [
+      2
+    ],
+    "factor_powers": [
+      4
+    ],
+    "complexity_level": "medium"
+  },
+  {
+    "input": "83 SEP",
+    "output": "83 END",
+    "number": 83,
+    "prime_factors": [
+      83
+    ],
+    "factor_powers": [
+      1
+    ],
+    "complexity_level": "hard"
+  }
+]

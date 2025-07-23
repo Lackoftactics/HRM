@@ -10,16 +10,16 @@ hydra:
 # Data path
 data_path: data/factorization-1k
 
-# Hyperparams - Training (optimized for Apple Silicon and small dataset)
-global_batch_size: 32  # Smaller batch size for Apple Silicon and small dataset
+# Hyperparams - Training (optimized for fast learning)
+global_batch_size: 64  # Larger batch size for faster training
 
-epochs: 50000  # More epochs for small dataset
-eval_interval: 2000
+epochs: 500  # Balanced epochs
+eval_interval: 50  # More frequent evaluation
 checkpoint_every_eval: True
 
-lr: 3e-4  # Higher learning rate for small dataset
+lr: 5e-4  # Even higher learning rate for faster convergence
 lr_min_ratio: 0.1
-lr_warmup_steps: 1000
+lr_warmup_steps: 100  # Much shorter warmup for faster start
 
 # Standard hyperparameter settings for LM, as used in Llama
 beta1: 0.9

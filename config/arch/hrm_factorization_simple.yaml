@@ -1,0 +1,31 @@
+# Smaller HRM architecture for simple factorization task
+# Optimized for numbers 2-100
+
+name: hrm.hrm_act_v1@HierarchicalReasoningModel_ACTV1
+loss:
+  name: losses@ACTLossHead
+  loss_type: stablemax_cross_entropy
+
+# Model architecture - smaller for faster training
+hidden_size: 128  # Reduced from 256
+expansion: 4
+num_heads: 4
+
+# Hierarchical structure - minimal for simple task
+H_layers: 1  # Reduced from 2
+L_layers: 1  # Reduced from 2
+H_cycles: 1  # Reduced from 2
+L_cycles: 1  # Reduced from 2
+
+# ACT parameters - conservative for stability
+halt_exploration_prob: 0.05  # Lower exploration
+halt_max_steps: 4  # Fewer steps needed for simple task
+
+# Embeddings
+puzzle_emb_ndim: 128  # Reduced from 256
+
+# Position encodings
+pos_encodings: "rope"
+
+# Precision
+forward_dtype: "bfloat16"
